@@ -27,25 +27,26 @@ const HomeCard = ({ year }) => {
             <p>Time Table for {year} year</p>
           </a>
         </Link>
-        <Link href={`/video?year=${year}`}>
-          <a href="#" className={`${styles.card} wallet `}>
-            <div className={styles.overlay}></div>
-            <div className={styles.circle}>
-              <Image src="/vid.png" height={120} width={120} alt="video" />
-            </div>
 
-            <h4>Video</h4>
-            <p>Video for {year} year</p>
-          </a>
-        </Link>
         <Link href={`/notes?year=${year}`}>
-          <a href="#" className={`${styles.card} human-resources`}>
+          <a className={`${styles.card} human-resources`}>
             <div className={styles.overlay}></div>
             <div className={styles.circle}>
               <Image src="/book.png" height={130} width={130} alt="book" />
             </div>
             <h4>Study Material</h4>
             <p>Books/Notes for {year} year</p>
+          </a>
+        </Link>
+        <Link href={`/query`}>
+          <a className={`${styles.card} wallet `}>
+            <div className={styles.overlay}></div>
+            <div className={styles.circle}>
+              <Image src="/query.png" height={120} width={120} alt="video" />
+            </div>
+
+            <h4>Query</h4>
+            <p>Ask a question!</p>
           </a>
         </Link>
       </div>

@@ -16,17 +16,14 @@ export default function Accordian({ sub }) {
       </header>
       {expanded &&
         sub.resources_3s !== [] &&
-        sub.resources_3s.map(
-          (video, index) =>
-            (video.type = "video" && (
-              <div key={index}>
-                <h5>{video.Resources.name}</h5>
-                <a href={video.Resources.link}>
-                  <span>{video.Resources.link}</span>
-                </a>
-              </div>
-            ))
-        )}
+        sub.resources_3s.map((notes, index) => (
+          <div key={index}>
+            <h5>{notes.resources.name}</h5>
+            <a href={notes.resources.link}>
+              <span>{notes.resources.link}</span>
+            </a>
+          </div>
+        ))}
       <style jsx>{`
         .subject {
           padding: 1rem 1.5rem;
