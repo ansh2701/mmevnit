@@ -1,0 +1,23 @@
+.container {
+  width: auto;
+}
+
+.container th {
+  width: 100px;
+  height: 80px;
+}
+
+.slot {
+  text-align: center;
+}
+
+.table,
+.table thead {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.double tr {
+  align-items: center;
+  vertical-align: middle;
+}
