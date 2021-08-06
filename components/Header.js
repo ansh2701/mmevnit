@@ -47,23 +47,30 @@ function Header() {
             className={click ? `${styles.navmenuActive}` : `${styles.navmenu}`}
           >
             <li className={styles.navitem}>
-              <Link href="/">
+              <Link href="/notice?year=3rd">
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
-                  Blog
+                  Notice
                 </a>
               </Link>
             </li>
             <li className={styles.navitem}>
-              <Link href="/news">
+              <Link href="/timetable?year=3rd">
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
-                  News
+                  Time Table
                 </a>
               </Link>
             </li>
             <li className={styles.navitem}>
-              <Link href="/tweet">
+              <Link href="/video?year=3rd">
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
-                  Tweets
+                  Video
+                </a>
+              </Link>
+            </li>
+            <li className={styles.navitem}>
+              <Link href="/notes?year=3rd">
+                <a className={styles.navlinks} onClick={closeMobileMenu}>
+                  Study Material
                 </a>
               </Link>
             </li>

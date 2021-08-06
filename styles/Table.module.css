@@ -12,7 +12,8 @@
 }
 
 .table,
-.table thead {
+.table thead,
+.table td {
   border: 1px solid black;
   border-collapse: collapse;
 }
@@ -20,4 +21,7 @@
 .double tr {
   align-items: center;
   vertical-align: middle;
+}
+.double td {
+  border: none;
 }

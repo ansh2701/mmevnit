@@ -1,6 +1,6 @@
 .navbar {
   background: #fff;
-  color: #000;
+  color: #252c37;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -54,12 +54,8 @@
 }
 
 .navlinks:hover {
-  border-bottom: 2px solid #818181;
+  color: #16b6fd;
   transition: all 0.2s ease-out;
-}
-
-.navlinksmobile {
-  display: none;
 }
 
 .menuicon {
@@ -74,16 +70,6 @@
     align-items: center;
     justify-self: center;
   }
-  /* 
-  .logo {
-    justify-self: start;
-    margin-left: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-  } */
 
   .navmenu {
     display: flex;
@@ -101,11 +87,11 @@
 
   .navmenuActive {
     composes: navmenu;
-    background: #2c2c2c;
+    background: #ebebeb;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
-    z-index: 1;
+    z-index: 1000;
   }
 
   .navlinks {
@@ -116,8 +102,7 @@
   }
 
   .navlinks:hover {
-    background-color: #fff;
-    color: #242424;
+    color: #2bdbe7;
     border-radius: 0;
   }
 
@@ -135,26 +120,5 @@
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-  }
-
-  .navlinksmobile {
-    display: block;
-    text-align: center;
-    margin: 2rem auto;
-    border-radius: 4px;
-    width: 80%;
-    text-decoration: none;
-    font-size: 1.5rem;
-    background-color: transparent;
-    color: #fff;
-    padding: 14px 20px;
-    border: 1px solid #fff;
-    transition: all 0.3s ease-out;
-  }
-
-  .navlinksmobile:hover {
-    background: #fff;
-    color: #242424;
-    transition: 250ms;
   }
 }

@@ -5,7 +5,6 @@ import Table from "../components/Table";
 const Timetable = () => {
   const [sub, setSub] = useState("All");
   const router = useRouter();
-  console.log(router.query.year);
 
   return (
     <div className="container">
@@ -14,7 +13,6 @@ const Timetable = () => {
       </div>
       <div>
         <label htmlFor="subject">Choose a subject:</label>
-
         <select
           name="subject"
           id="subject"
@@ -50,7 +48,9 @@ const Timetable = () => {
             #46eefa,
             #5ffbf1
           );
-          padding: 5rem 0;
+          background-repeat: repeat;
+          /* padding: 5rem 0; */
+          min-height: 100vh;
           flex: 1;
           display: flex;
           flex-direction: column;

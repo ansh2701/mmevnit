@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { fetchAPI } from "../lib/api";
 import Accordian from "../components/Accordian";
 import Layout from "../components/Layout";
 
@@ -39,8 +40,7 @@ export async function getServerSideProps(query) {
   const que = val.includes(query.query.year)
     ? query.query.year.slice(0, 1)
     : "3";
-  const res = await fetch(`https://mmevnitback.herokuapp.com/subject-${que}-s`);
-  const data = await res.json();
+  const data = await fetchAPI(`/subject-${que}-s`);
 
   if (!data) {
     return {
