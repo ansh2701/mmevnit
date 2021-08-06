@@ -21,7 +21,9 @@ export default function Accordian({ sub }) {
             (video.type = "video" && (
               <div key={index}>
                 <h5>{video.Resources.name}</h5>
-                <a href={video.Resources.link}>{video.Resources.link}</a>
+                <a href={video.Resources.link}>
+                  <span>{video.Resources.link}</span>
+                </a>
               </div>
             ))
         )}
@@ -29,6 +31,7 @@ export default function Accordian({ sub }) {
         .subject {
           padding: 1rem 1.5rem;
           width: 70vw;
+          height: auto;
           border: 2px solid #eae6eb;
           margin-bottom: 1rem;
           border-radius: 0.25rem;
@@ -38,10 +41,11 @@ export default function Accordian({ sub }) {
           text-transform: none;
           line-height: 1.5;
         }
-        .subject p {
+        .subject span {
           color: hsl(209, 34%, 30%);
           margin-bottom: 0;
           margin-top: 0.5rem;
+          word-wrap: break-word;
         }
         .subject header {
           display: flex;
@@ -66,10 +70,6 @@ export default function Accordian({ sub }) {
           margin-left: 1rem;
           align-self: center;
           min-width: 2rem;
-        }
-
-        .subject-title {
-          cursor: pointer;
         }
       `}</style>
     </div>

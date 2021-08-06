@@ -5,7 +5,6 @@ import Layout from "../components/Layout";
 
 const Lecture = () => {
   const router = useRouter();
-  console.log(router.query.year);
   return (
     <Layout>
       <div className="container">

@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
@@ -85,7 +86,6 @@
 
   transition: opacity 0.3s ease-out;
 }
-
 .circle img,
 .circle .img {
   z-index: 10000;

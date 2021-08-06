@@ -30,13 +30,13 @@ function Header() {
         <div className={styles.container}>
           <Link href="/">
             <a className={styles.logo} onClick={closeMobileMenu}>
-              {/* <Image
-                src="https://res.cloudinary.com/mrxox/image/upload/v1627475987/logo_784685d0ba.png"
+              <Image
+                src="/mmelogo2.png"
                 height={60}
-                width={60}
+                width={180}
                 alt="Dalal Times"
-              /> */}
-              <FaMagento />
+              />
+              {/* <FaMagento /> */}
             </a>
           </Link>
 
