@@ -36,7 +36,7 @@ const Card = ({ notice }) => {
           </div>
         </div>
         <div className={styles.meta}>{notice.Notice.description}</div>
-        <div>
+        <div className={styles.footer}>
           {notice.Notice.submit && (
             <div className={styles.submit}>
               Submit on : {notice.Notice.submit}

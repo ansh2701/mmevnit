@@ -33,7 +33,7 @@ const Timetable = () => {
       <Table sub={sub} />
       <style jsx>{`
         .container {
-          background-image: linear-gradient(
+          /* background-image: linear-gradient(
             to right bottom,
             #d16ba5,
             #c777b9,
@@ -47,9 +47,9 @@ const Timetable = () => {
             #41dfff,
             #46eefa,
             #5ffbf1
-          );
-          background-repeat: repeat;
-          /* padding: 5rem 0; */
+          ); */
+          /* background: #fff; */
+
           width: 100%;
           height: 100%;
           min-height: 100vh;
