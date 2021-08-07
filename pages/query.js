@@ -1,35 +1,53 @@
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
 import Layout from "../components/Layout";
+import ModalCom from "../components/Modal";
 import QuesCard from "../components/QuesCard";
 
 const Query = () => {
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   return (
     <Layout>
       <div className="search-bar">
-        <div className="container">
-          <input
-            type="text"
-            id="box"
-            placeholder="Search anything..."
-            className={`search__box ${show && "show"}`}
-          />
-          {/* <i class="fas fa-search search__icon" ></i> */}
-          <span id="icon" className="search__icon">
-            <FaSearch onClick={() => setShow(true)} />
-          </span>
+        <div className="search__container">
+          <input className="search__input" type="text" placeholder="Search" />
         </div>
       </div>
-      <div className="q-container">
+      <div>
+        <button onClick={() => setShowModal(true)} className="btn">
+          What is your question
+        </button>
+        <ModalCom
+          onClose={() => setShowModal(false)}
+          show={showModal}
+          title={"Ask a question!"}
+        >
+          Hello from the modal!
+        </ModalCom>
+      </div>
+      <div className={`q-container ${showModal && "hide"}`}>
+        <QuesCard />
+        <QuesCard />
+        <QuesCard />
+        <QuesCard />
+        <QuesCard />
+        <QuesCard />
+        <QuesCard />
+        <QuesCard />
+        <QuesCard />
         <QuesCard />
       </div>
       <style jsx>{`
         .q-container {
           display: flex;
           justify-content: center;
+          flex-direction: column;
           min-height: 80vh;
-          background-color: #f1f1f1;
+          width: 100%;
+          align-items: center;
+          background-color: #eceded;
+        }
+        .hide {
+          position: fixed;
         }
         .search-bar {
           width: 100%;
@@ -39,69 +57,53 @@ const Query = () => {
           align-items: center;
           background-color: #f1f1f1;
         }
-        .container {
-          width: 350px;
-          height: 70px;
-          /* position: absolute; */
+        /* .search__container {
+          padding-top: 64px;
+        } */
 
-          /* left: 50%;
-          transform: translate(-50%, -50%); */
-          background-color: #1e272e;
-          /*   margin: 20vh auto; */
-          border-radius: 4rem;
-          padding: 10px;
+        .search__input {
+          width: 100%;
+          padding: 12px 24px;
+
+          background-color: transparent;
+          transition: transform 250ms ease-in-out;
+          font-size: 14px;
+          line-height: 18px;
+
+          color: #575756;
+          background-color: transparent;
+          /*         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg); */
+
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-size: 18px 18px;
+          background-position: 95% center;
+          border-radius: 50px;
+          border: 1px solid #575756;
+          transition: all 250ms ease-in-out;
+          backface-visibility: hidden;
+          transform-style: preserve-3d;
         }
 
-        .search__box {
-          float: left;
-          width: 0;
-          height: 50px;
-          background: none;
-          color: #f7f7f7;
-          font-size: 1.4rem;
-          border-radius: 2rem;
-          outline: none;
+        .search__input::placeholder {
+          color: rgba(87, 87, 86, 0.8);
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+        }
+
+        .search__input:hover,
+        .search__input:focus {
+          padding: 12px 0;
+          outline: 0;
+          border: 1px solid transparent;
+          border-bottom: 1px solid #575756;
+          border-radius: 0;
+          background-position: 100% center;
+        }
+        .btn {
+          width: 600px;
           border: none;
-          /* position: relative; */
-          opacity: 1;
-          transition: all 0.75s ease-in;
-          cursor: pointer;
-        }
-
-        /* .search__box:focus, .search__box:hover {
-  background-color: #f1f2f6;
-} */
-
-        .search__icon {
-          box-sizing: border-box;
-          float: right;
-          font-size: 1.5rem;
-          display: inline-block;
-
-          /*   justify-content: center;
-  align-items: center; */
-          margin-left: 0.8rem;
-          margin-top: 0;
-          cursor: pointer;
-          position: absolute;
-          color: #fa983a;
-          transition: all 0.25s ease-in;
-          padding: 0.7rem;
-          border-radius: 50%;
-        }
-
-        .container:hover > .search__box {
-          width: 85%;
-          padding: 0 1rem;
-        }
-
-        .container:hover > .search__icon {
-          color: #eee;
-        }
-
-        .show {
-          width: 85%;
-          border: 1px solid red;
+          justify-content: center;
         }
       `}</style>
     </Layout>

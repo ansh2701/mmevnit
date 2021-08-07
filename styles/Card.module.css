@@ -1,4 +1,4 @@
-.card {
+/* .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,4 +32,45 @@
 .submit {
   border-top: 1px solid #000;
   padding-left: 10px;
+} */
+
+.list__item {
+  display: block;
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  background: white;
+  border-radius: 1rem;
+  color: inherit;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.type {
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  color: inherit;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.type:hover {
+  color: #e27;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: dimgrey;
+}
+.meta > div {
+  padding-right: 0.5rem;
+}
+
+.deadline {
+  margin-top: 2px;
 }
