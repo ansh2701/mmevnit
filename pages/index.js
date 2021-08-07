@@ -1,12 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
-import Card from "../components/Card";
+
 import { useState } from "react";
 import HomeCard from "../components/HomeCard";
 import Layout from "../components/Layout";
 
 import styles from "../styles/Home.module.css";
-import ProfileCard from "../components/ProfileCard";
 
 export default function Home() {
   const [year, setYear] = useState("3rd");
