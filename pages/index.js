@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import { useState, useEffect } from "react";
+import Example from "../components/Example";
 import HomeCard from "../components/HomeCard";
 import Layout from "../components/Layout";
 
@@ -38,7 +39,6 @@ export default function Home() {
               <option value="3rd">3rd</option>
               <option value="4th">4th</option>
             </select>
-            <h1>{typeof localStorage === undefined ? "undefined" : year}</h1>
           </div>
           <HomeCard year={year} />
         </main>
