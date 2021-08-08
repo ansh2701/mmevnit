@@ -9,9 +9,14 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   const [year, setYear] = useState("3rd");
   useEffect(() => {
-    window.localStorage.getItem("year") !== null &&
-      setYear(localStorage.getItem("year"));
+    const localYear = localStorage.getItem("year");
+    console.log(localYear);
+    localYear && setYear(localYear);
   }, []);
+  useEffect(() => {
+    localStorage.setItem("year", year);
+  }, [year]);
+
   return (
     <Layout>
       <div className={styles.container}>

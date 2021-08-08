@@ -12,9 +12,11 @@ const Footer = () => {
     router.reload(window.location.pathname);
   };
   useEffect(() => {
-    // window.localStorage.getItem("year") !== null &&
-    setYear(localStorage.getItem("year"));
+    const localYear = localStorage.getItem("year");
+    console.log(localYear);
+    localYear && setYear(localYear);
   }, []);
+
   return (
     <div>
       <div>
