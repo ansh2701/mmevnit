@@ -33,7 +33,7 @@ export default function Home() {
               <option value="3rd">3rd</option>
               <option value="4th">4th</option>
             </select>
-            <h1>{typeof localStorage === undefined ? "undefined" : "works"}</h1>
+            <h1>{typeof localStorage === undefined ? "undefined" : year}</h1>
           </div>
           <HomeCard year={year} />
         </main>
