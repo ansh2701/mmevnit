@@ -9,7 +9,7 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   const [year, setYear] = useState("3rd");
   useEffect(() => {
-    localStorage.getItem("year") !== null &&
+    window.localStorage.getItem("year") !== null &&
       setYear(localStorage.getItem("year"));
   }, []);
   return (

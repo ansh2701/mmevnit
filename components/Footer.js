@@ -4,15 +4,15 @@ import { useRouter } from "next/router";
 import ModalCom from "../components/Modal";
 const Footer = () => {
   const router = useRouter();
-  const [year, setYear] = useState("2nd");
+  const [year, setYear] = useState("3rd");
   const [showModal, setShowModal] = useState(false);
   const handleSubmit = () => {
-    localStorage.setItem("year", year);
+    window.localStorage.setItem("year", year);
     setShowModal(false);
     router.reload(window.location.pathname);
   };
   useEffect(() => {
-    localStorage.getItem("year") !== null &&
+    window.localStorage.getItem("year") !== null &&
       setYear(localStorage.getItem("year"));
   }, []);
   return (
@@ -26,7 +26,7 @@ const Footer = () => {
           show={showModal}
           title={"Change Prefrences"}
         >
-          <select onClick={(e) => setYear(e.target.value)}>
+          <select onClick={(e) => setYear(e.target.value)} defaultValue={year}>
             <option value="2nd">2nd</option>
             <option value="3rd">3rd</option>
             <option value="4th">4th</option>
