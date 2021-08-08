@@ -1,0 +1,156 @@
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  max-width: 600px;
+  padding: 50px 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  border-bottom: 1px solid #d6d6d6;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.count {
+  padding: 0.3rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  margin-top: -2rem;
+  min-width: 1.5rem;
+  line-height: 1.2;
+  text-align: center;
+  color: white;
+  background: #e27;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: black;
+}
+.controls > div {
+  font-weight: 600;
+}
+.controls > * {
+  margin-right: 1rem;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+.controls a:hover {
+  color: #e27;
+}
+.controls .sort {
+  display: flex;
+  align-items: flex-end;
+}
+.controls .sort:after {
+  display: block;
+  opacity: 0;
+  content: "";
+  margin-left: 0.25rem;
+  font-family: "Material Icons";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
+}
+.controls .sort.asc,
+.controls .sort.desc {
+  color: #e27;
+}
+.controls .sort.asc:after {
+  opacity: 1;
+  content: "↑";
+}
+.controls .sort.desc:after {
+  opacity: 1;
+  content: "↓";
+}
+
+.tags {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.tags div {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+.tags .tag {
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  color: white;
+  background: #999999;
+  padding: 0.2rem 0.6rem 0.2rem 0.6rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.tags .tag:after {
+  content: "x";
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  max-width: 0;
+  transition: all 0.2s ease;
+}
+.tags .tag.active:after {
+  opacity: 1;
+  visibility: visible;
+  max-width: 2rem;
+  margin-left: 0.4rem;
+}
+.tags .tag:hover,
+.tags .tag.active {
+  background: #e27;
+}
+
+.hide {
+  position: fixed;
+}
+
+.btn {
+  appearance: none;
+
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 0.6em;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 10px;
+  padding: 1em 2em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
