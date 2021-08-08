@@ -6,6 +6,7 @@ import styles from "../styles/Header.module.css";
 
 function Header() {
   const [click, setClick] = useState(false);
+  const [year, setYear] = useState("3rd");
   const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
@@ -22,6 +23,11 @@ function Header() {
   useEffect(() => {
     showButton();
     window.addEventListener("resize", showButton);
+  }, []);
+
+  useEffect(() => {
+    const localYear = localStorage.getItem("year");
+    setYear(localYear);
   }, []);
 
   return (
@@ -47,30 +53,30 @@ function Header() {
             className={click ? `${styles.navmenuActive}` : `${styles.navmenu}`}
           >
             <li className={styles.navitem}>
-              <Link href="/notice?year=3rd">
+              <Link href={`/notice?year=${year}`}>
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
                   Notice
                 </a>
               </Link>
             </li>
             <li className={styles.navitem}>
-              <Link href="/timetable?year=3rd">
+              <Link href={`/timetable?year=${year}`}>
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
                   Time Table
                 </a>
               </Link>
             </li>
             <li className={styles.navitem}>
-              <Link href="/video?year=3rd">
+              <Link href={`/notes?year=${year}`}>
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
-                  Video
+                  Study Material
                 </a>
               </Link>
             </li>
             <li className={styles.navitem}>
-              <Link href="/notes?year=3rd">
+              <Link href={`/query?year=${year}`}>
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
-                  Study Material
+                  Query
                 </a>
               </Link>
             </li>

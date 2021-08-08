@@ -4,10 +4,10 @@
   display: inline-block;
   overflow: hidden;
   margin: 10px;
-  min-width: 250px;
-  max-width: 310px;
+  max-width: 250px;
   width: 100%;
   background-color: #ffffff;
+  border-radius: 10px;
   color: #2b2b2b;
   text-align: center;
   font-size: 16px;
@@ -24,11 +24,10 @@
 }
 
 .snip1559 .profileImage img {
-  max-width: 100%;
   vertical-align: top;
   position: relative;
   border-radius: 50%;
-  max-width: 40%;
+  max-width: 70%;
 }
 
 .snip1559 figcaption {

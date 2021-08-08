@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import { useState, useEffect } from "react";
+import DupCard from "../components/DupCard";
 import Example from "../components/Example";
 import HomeCard from "../components/HomeCard";
 import Layout from "../components/Layout";
@@ -41,6 +42,7 @@ export default function Home() {
             </select>
           </div>
           <HomeCard year={year} />
+          <DupCard />
         </main>
       </div>
     </Layout>
