@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HomeCard from "../components/HomeCard";
 import Layout from "../components/Layout";
 
@@ -8,7 +8,10 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [year, setYear] = useState("3rd");
-
+  useEffect(() => {
+    localStorage.getItem("year") !== null &&
+      setYear(localStorage.getItem("year"));
+  }, []);
   return (
     <Layout>
       <div className={styles.container}>
@@ -22,10 +25,7 @@ export default function Home() {
           <h1>MME Student Corner</h1>
           <div className={styles.select}>
             <h3>Select your year</h3>
-            <select
-              onChange={(e) => setYear(e.target.value)}
-              defaultValue="3rd"
-            >
+            <select onChange={(e) => setYear(e.target.value)}>
               <option value="2nd">2nd</option>
               <option value="3rd">3rd</option>
               <option value="4th">4th</option>
