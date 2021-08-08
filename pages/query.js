@@ -101,65 +101,54 @@ const Query = ({ query }) => {
                 show={showModal}
                 title={"Ask a question!"}
               >
-                <Alert color="primary">
+                <ul className={styles.alert}>
                   <li>Make sure your question has not been asked already</li>
                   <li>Keep your question short and to the point</li>
                   <li>Give Correct Details</li>
-                </Alert>
-                <Form>
-                  <FormGroup row>
-                    <Label for="email" sm={2}>
-                      Email
-                    </Label>
-                    <Col sm={10}>
-                      <Input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Email"
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label for="roll" sm={2}>
-                      Roll No.
-                    </Label>
-                    <Col sm={10}>
-                      <Input
-                        type="text"
-                        name="roll"
-                        id="roll"
-                        placeholder="Ex:-BTxxMMExx"
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label for="text" sm={2}>
-                      Question
-                    </Label>
-                    <Col sm={10}>
-                      <Input
-                        type="textarea"
-                        name="text"
-                        id="text"
-                        onChange={(e) => {
-                          setAskQuestion(e.target.value);
-                        }}
-                      />
-                    </Col>
-                  </FormGroup>
-                </Form>
-                <Container>
-                  <ButtonToggle
-                    color="secondary"
+                </ul>
+                <form className={styles.form}>
+                  <label htmlFor="email">Email</label>
+
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                  />
+
+                  <label htmlFor="roll">Roll No.</label>
+
+                  <input
+                    type="text"
+                    name="roll"
+                    id="roll"
+                    placeholder="Ex:-BTxxMMExx"
+                  />
+
+                  <label htmlFor="text" sm={2}>
+                    Question
+                  </label>
+
+                  <input
+                    type="textarea"
+                    name="text"
+                    id="text"
+                    onChange={(e) => {
+                      setAskQuestion(e.target.value);
+                    }}
+                  />
+                </form>
+                <div className={styles.buttonGroup}>
+                  <button
                     onClick={() => setShowModal(false)}
+                    className={styles.close}
                   >
                     close
-                  </ButtonToggle>{" "}
-                  <ButtonToggle color="success" onClick={submitModal}>
+                  </button>
+                  <button onClick={submitModal} className={styles.submit}>
                     Submit
-                  </ButtonToggle>{" "}
-                </Container>
+                  </button>
+                </div>
               </ModalCom>
             </div>
           </div>
