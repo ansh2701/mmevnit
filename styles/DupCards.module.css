@@ -21,15 +21,16 @@
   margin: 20px;
 }
 
-.card:hover {
-  transform: translateY(-5px) scale(1.005) translateZ(0);
-  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11);
-}
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11);
+  }
 
-.card:hover h4 {
-  color: var(--text-color-hover);
+  .card:hover h4 {
+    color: var(--text-color-hover);
+  }
 }
-
 .card:active {
   transform: scale(1) translateZ(0);
   box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11),

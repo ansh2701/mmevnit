@@ -57,9 +57,10 @@
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
-
-.type:hover {
-  color: #e27;
+@media (hover: hover) and (pointer: fine) {
+  .type:hover {
+    color: #e27;
+  }
 }
 .meta {
   display: flex;

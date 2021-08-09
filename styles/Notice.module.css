@@ -125,9 +125,12 @@
   max-width: 2rem;
   margin-left: 0.4rem;
 }
-.tags .tag:hover,
-.tags .tag.active {
-  background: #e27;
+
+@media (hover: hover) and (pointer: fine) {
+  .tags .tag:hover,
+  .tags .tag.active {
+    background: #e27;
+  }
 }
 
 .hide {

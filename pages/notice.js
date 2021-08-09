@@ -66,7 +66,7 @@ const Lecture = ({ data }) => {
               );
             })}
           </div>
-          <div className={styles.controls}>
+          {/* <div className={styles.controls}>
             <div>Sort by:</div>
             <a
               className={`${styles.sort} ${styles.asc}`}
@@ -78,7 +78,7 @@ const Lecture = ({ data }) => {
             <a className={styles.sort} href="#" data-sort="artist">
               Deadline
             </a>
-          </div>
+          </div> */}
           {filtered.map((notice, index) => (
             <Card notice={notice} key={index} />
           ))}
