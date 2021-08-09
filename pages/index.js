@@ -41,7 +41,10 @@ export default function Home() {
       <Footer>
         <div className={styles.select}>
           <h3>Change Year</h3>
-          <select onClick={(e) => setYear(e.target.value)} defaultValue={year}>
+          <select
+            onChange={(e) => setYear(e.target.value)}
+            onClick={(e) => setYear(e.target.value)}
+          >
             <option value="2nd">2nd</option>
             <option value="3rd">3rd</option>
             <option value="4th">4th</option>
