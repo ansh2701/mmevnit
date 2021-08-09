@@ -8,7 +8,19 @@ const Card = ({ notice }) => {
     <div className={styles.list}>
       <a className={styles.list__item}>
         <div className={styles.header}>
-          <div className={styles.type}>{notice.Notice.type}</div>
+          <div
+            className={styles.type}
+            style={{
+              color: `${
+                notice.Notice.deadline &&
+                notice.Notice.deadline.slice(8, 10) ===
+                  new Date().toISOString().slice(8, 10) &&
+                "red"
+              }`,
+            }}
+          >
+            {notice.Notice.type}
+          </div>
           <div className={styles.date}>
             <Moment format="DD/MM/YY hh:mm">{notice.updated_at}</Moment>
           </div>

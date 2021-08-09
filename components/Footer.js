@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
 import styles from "../styles/Footer.module.css";
 
@@ -8,8 +9,11 @@ const Footer = ({ children }) => {
       <div className={styles.top}>
         <div className={styles.details}>
           <div className={styles.logo}>
-            <Image src="/mmelogo2.png" height={60} width={180} alt="MME" />
-            <p>MME DEPARTMENT</p>
+            <Image src="/VNITLOGO.png" height={100} width={100} alt="MME" />
+            <div className={styles.name}>
+              <p>MME DEPARTMENT</p>
+              <span>VNIT, NAGPUR</span>
+            </div>
           </div>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem
@@ -22,17 +26,50 @@ const Footer = ({ children }) => {
         <div className={styles.link}>
           <ul>
             <p>Site Links</p>
-            <li>AIMS</li>
-            <li>AIMS</li>
-            <li>AIMS</li>
+            <li>
+              <Link href={`/derpartment-council`}>
+                <a>Council</a>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/proffesor`}>
+                <a>Proffesor</a>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/alumni`}>
+                <a>Alumni</a>
+              </Link>
+            </li>
           </ul>
         </div>
         <div className={styles.link}>
           <ul>
             <p>Useful Links</p>
-            <li>AIMS</li>
-            <li>AIMS</li>
-            <li>AIMS</li>
+            <li>
+              <Link href={`https://vnit.ac.in/`}>
+                <a
+                  className={styles.navlinks}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Vnit Official
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={`https://aims.vnit.ac.in/exam/faces/infrastructure/SLogin.jsf`}
+              >
+                <a
+                  className={styles.navlinks}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  AIMS
+                </a>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

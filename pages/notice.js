@@ -5,24 +5,31 @@ import Card from "../components/Card";
 import Layout from "../components/Layout";
 import styles from "../styles/Notice.module.css";
 import SearchBar from "../components/SearchBar";
+import Moment from "react-moment";
 
 const val = ["2nd", "3rd", "4th"];
 const filterName = ["assignment", "notice"];
 
 const Lecture = ({ data }) => {
+  const changeData = data.filter((d) =>
+    d.Notice.deadline
+      ? d.Notice.deadline.slice(8, 10) >= new Date().toISOString().slice(8, 10)
+      : true
+  );
+
   const [fil, setFil] = useState("");
-  const [filtered, setFiltered] = useState(data);
+  const [filtered, setFiltered] = useState(changeData);
   const [search, setSearch] = useState("");
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     if (e.target.getAttribute("data-filter") === fil) {
       setFil("");
-      setFiltered(data);
+      setFiltered(changeData);
     } else {
       setFil(e.target.getAttribute("data-filter"));
 
       setFiltered(
-        data.filter(
+        await changeData.filter(
           (data) => data.Notice.type === e.target.getAttribute("data-filter")
         )
       );
@@ -34,12 +41,12 @@ const Lecture = ({ data }) => {
     setSearch(search);
     if (search.length > 3) {
       setFiltered(
-        data.filter((data) =>
+        changeData.filter((data) =>
           data.Notice.description.toLowerCase().includes(search)
         )
       );
     } else {
-      setFiltered(data);
+      setFiltered(changeData);
     }
   };
   return (
@@ -104,7 +111,7 @@ export async function getServerSideProps(query) {
   const que = val.includes(query.query.year)
     ? query.query.year.slice(0, 1)
     : "3";
-  const data = await fetchAPI(`/notice-${que}-s`);
+  const data = await fetchAPI(`/notice-${que}-s?_sort=created_at:DESC`);
 
   if (!data) {
     return {

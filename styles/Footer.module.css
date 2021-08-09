@@ -29,10 +29,24 @@
   display: flex;
 }
 
+.logo div {
+  padding: 0.5rem;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1rem;
+}
+
 .logo p {
   color: #fff;
   font-size: 2rem;
   font-weight: 700;
+  margin: 0;
+  margin-bottom: 10px;
+  font-family: "ABeeZee", sans-serif;
 }
 
 .link p {
