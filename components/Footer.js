@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FaInstagram } from "react-icons/fa";
 import styles from "../styles/Footer.module.css";
 
-const Footer = () => {
+const Footer = ({ children }) => {
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
@@ -18,6 +18,7 @@ const Footer = () => {
             Quibusdam, aspernatur.
           </p>
         </div>
+        {children}
         <div className={styles.link}>
           <ul>
             <p>Site Links</p>

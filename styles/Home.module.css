@@ -5,14 +5,6 @@
   justify-content: center;
   min-height: 80vh;
   background-color: #fff;
-  /* background-image: linear-gradient(
-    to right bottom,
-    #fff9f6,
-    #fffaf6,
-    #fffaf6,
-    #fffbf7,
-    #fffbf7
-  ); */
 }
 
 .main {
@@ -39,4 +31,8 @@
 
 .select select:focus {
   outline: none;
+}
+
+.main h1 {
+  text-align: center;
 }

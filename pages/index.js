@@ -31,23 +31,23 @@ export default function Home() {
 
         <main className={styles.main}>
           <h1>MME STUDENT CORNER</h1>
-          <div className={styles.select}>
-            <h3>Select your year</h3>
-            <select
-              onChange={(e) => setYear(e.target.value)}
-              defaultValue={year}
-            >
-              <option value="2nd">2nd</option>
-              <option value="3rd">3rd</option>
-              <option value="4th">4th</option>
-            </select>
-          </div>
+
           <HomeCard year={year} />
           <h2>DEPARTMENT DETAILS</h2>
           <DupCard />
         </main>
       </div>
-      <Footer />
+
+      <Footer>
+        <div className={styles.select}>
+          <h3>Change Year</h3>
+          <select onChange={(e) => setYear(e.target.value)} defaultValue={year}>
+            <option value="2nd">2nd</option>
+            <option value="3rd">3rd</option>
+            <option value="4th">4th</option>
+          </select>
+        </div>
+      </Footer>
     </Layout>
   );
 }
