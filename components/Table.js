@@ -26,7 +26,7 @@ const defsch = {
   },
   Wednesday: {
     A: "Fem",
-    B: "-",
+    B: "",
     C: "",
     D: "",
     E: "",
@@ -37,7 +37,7 @@ const defsch = {
   },
   Thursday: {
     A: "Fem",
-    B: "-",
+    B: "",
     C: "",
     D: "",
     E: "",
@@ -48,7 +48,7 @@ const defsch = {
   },
   Friday: {
     A: "Fem",
-    B: "-",
+    B: "",
     C: "",
     D: "",
     E: "",
@@ -70,8 +70,8 @@ const defsch = {
   },
 };
 
-const Table = ({ sub }) => {
-  const [schedule, setschedule] = useState(defsch);
+const Table = ({ sub, subval }) => {
+  const [schedule, setschedule] = useState(subval);
 
   return (
     <div>

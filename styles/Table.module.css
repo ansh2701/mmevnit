@@ -1,11 +1,17 @@
 .container {
+  margin: 0 10vw;
+}
+
+.table {
+  min-width: 80vw;
   width: auto;
+
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.container th {
+.table th {
   width: 100px;
-  height: 80px;
+  height: 70px;
 }
 
 .slot {
@@ -25,15 +31,15 @@
 .double td {
   border: none;
 }
-
-.table td:hover {
-  font-size: 30px;
-  font-weight: 600;
+@media (hover: hover) and (pointer: fine) {
+  .table td:hover {
+    font-size: 30px;
+    font-weight: 600;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .container th {
-    width: 50px;
-    height: 80px;
+  .container {
+    margin: 0;
   }
 }

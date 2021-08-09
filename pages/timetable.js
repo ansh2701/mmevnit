@@ -2,16 +2,17 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Table from "../components/Table";
 import Layout from "../components/Layout";
+import { list, table } from "../helper/subject";
 
 const Timetable = () => {
   const [sub, setSub] = useState("All");
   const router = useRouter();
-
+  const year = router.query.year;
   return (
     <Layout>
       <div className="container">
         <div>
-          <h1>Time-table for {router.query.year} year</h1>
+          <h1>Time-table for {year} year</h1>
         </div>
         <div>
           <label htmlFor="subject">Choose a subject:</label>
@@ -24,46 +25,44 @@ const Timetable = () => {
               {" "}
               All
             </option>
-            <option value="Fem">Fem</option>
-            <option value="IM">IM</option>
-            <option value="BM">BM</option>
-            <option value="AS">AS</option>
-
-            {/* <option value=""></option> */}
+            {year &&
+              list[year.slice(1)] &&
+              list[year.slice(1)].map((val, index) => (
+                <option value={val} key={index}>
+                  {val}
+                </option>
+              ))}
           </select>
         </div>
-
-        <Table sub={sub} />
-        <style jsx>{`
-          .container {
-            /* background-image: linear-gradient(
-            to right bottom,
-            #d16ba5,
-            #c777b9,
-            #ba83ca,
-            #aa8fd8,
-            #9a9ae1,
-            #8aa7ec,
-            #79b3f4,
-            #69bff8,
-            #52cffe,
-            #41dfff,
-            #46eefa,
-            #5ffbf1
-          ); */
-            /* background: #fff; */
-
-            width: 100%;
-            height: 100%;
-            min-height: 100vh;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          }
-        `}</style>
       </div>
+      {year && list[year.slice(1)] && (
+        <Table sub={sub} subval={table[year.slice(1)]} />
+      )}
+      <style jsx>{`
+        .container {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
+        .container select {
+          -webkit-appearance: none;
+          padding: 7px 40px 7px 12px;
+
+          border: 1px solid #e8eaed;
+          border-radius: 5px;
+          background: #fff;
+          box-shadow: 0 1px 3px -2px #9098a9;
+          cursor: pointer;
+          font-family: inherit;
+          font-size: 16px;
+          transition: all 150ms ease;
+          text-align: center;
+        }
+
+        .container select:focus {
+          outline: none;
+        }
+      `}</style>
     </Layout>
   );
 };

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaTimes, FaBars, FaMagento } from "react-icons/fa";
+import { FaTimes, FaBars } from "react-icons/fa";
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
 

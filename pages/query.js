@@ -1,15 +1,5 @@
 import { useState } from "react";
 import { fetchAPI, getStrapiURL } from "../lib/api";
-import {
-  Col,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Alert,
-  ButtonToggle,
-  Container,
-} from "reactstrap";
 
 import { ToastContainer, toast } from "react-toastify";
 
@@ -17,23 +7,44 @@ import Layout from "../components/Layout";
 import ModalCom from "../components/Modal";
 import QuesCard from "../components/QuesCard";
 import SearchBar from "../components/SearchBar";
-// import "bootstrap/dist/css/bootstrap.css";
+
 import styles from "../styles/Notice.module.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const Query = ({ query }) => {
   const [fildata, setFildata] = useState(query);
   const [showModal, setShowModal] = useState(false);
+  const [alert, setAlert] = useState(false);
+  const [submit, setSubmit] = useState(false);
 
-  const [askQuestion, setAskQuestion] = useState("");
+  const [values, setValues] = useState({
+    email: "",
+    rollnum: "",
+    question: "",
+  });
+  const handleInput = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const submitModal = async (e) => {
+    setSubmit(true);
+    const hasEmptyFields = Object.values(values).some(
+      (element) => element === ""
+    );
 
-  const submitModal = async () => {
+    if (hasEmptyFields) {
+      setSubmit(false);
+      return setAlert(true);
+    }
+
     const res = await fetch(getStrapiURL("/queries"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ question: askQuestion }),
+      body: JSON.stringify(values),
     });
 
     if (!res.ok) {
@@ -57,6 +68,7 @@ const Query = ({ query }) => {
         progress: undefined,
       });
     }
+    setSubmit(false);
     setShowModal(false);
   };
 
@@ -105,7 +117,16 @@ const Query = ({ query }) => {
                   <li>Make sure your question has not been asked already</li>
                   <li>Keep your question short and to the point</li>
                   <li>Give Correct Details</li>
+                  <li>
+                    Your question will be displayed after verified and answered
+                    by the admin
+                  </li>
                 </ul>
+                {alert && (
+                  <ul className={styles.alert} style={{ background: "red" }}>
+                    <li>Fill all fields...</li>
+                  </ul>
+                )}
                 <form className={styles.form}>
                   <label htmlFor="email">Email</label>
 
@@ -114,15 +135,17 @@ const Query = ({ query }) => {
                     name="email"
                     id="email"
                     placeholder="Email"
+                    onChange={handleInput}
                   />
 
                   <label htmlFor="roll">Roll No.</label>
 
                   <input
                     type="text"
-                    name="roll"
-                    id="roll"
-                    placeholder="Ex:-BTxxMMExx"
+                    name="rollnum"
+                    id="rollnum"
+                    placeholder="Ex:-BT__MME___"
+                    onChange={handleInput}
                   />
 
                   <label htmlFor="text" sm={2}>
@@ -131,11 +154,9 @@ const Query = ({ query }) => {
 
                   <input
                     type="textarea"
-                    name="text"
-                    id="text"
-                    onChange={(e) => {
-                      setAskQuestion(e.target.value);
-                    }}
+                    name="question"
+                    id="question"
+                    onChange={handleInput}
                   />
                 </form>
                 <div className={styles.buttonGroup}>
@@ -146,7 +167,7 @@ const Query = ({ query }) => {
                     close
                   </button>
                   <button onClick={submitModal} className={styles.submit}>
-                    Submit
+                    {submit ? "Submiting..." : "Submit"}
                   </button>
                 </div>
               </ModalCom>
@@ -171,7 +192,7 @@ const Query = ({ query }) => {
 export default Query;
 
 export async function getServerSideProps() {
-  const query = await fetchAPI(`/queries`);
+  const query = await fetchAPI(`/queries?verified=true`);
 
   if (!query) {
     return {

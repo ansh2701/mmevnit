@@ -29,7 +29,7 @@ export default function Home() {
         </Head>
 
         <main className={styles.main}>
-          <h1>MME Student Corner</h1>
+          <h1>MME STUDENT CORNER</h1>
           <div className={styles.select}>
             <h3>Select your year</h3>
             <select
@@ -42,7 +42,7 @@ export default function Home() {
             </select>
           </div>
           <HomeCard year={year} />
-          <h2>Our Department</h2>
+          <h2>DEPARTMENT DETAILS</h2>
           <DupCard />
         </main>
       </div>
