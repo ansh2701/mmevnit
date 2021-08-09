@@ -16,6 +16,7 @@ const Query = ({ query }) => {
   const [showModal, setShowModal] = useState(false);
   const [alert, setAlert] = useState(false);
   const [submit, setSubmit] = useState(false);
+  const [search, setSearch] = useState("");
 
   const [values, setValues] = useState({
     email: "",
@@ -74,6 +75,7 @@ const Query = ({ query }) => {
 
   const handleChange = (e) => {
     const search = e.target.value.toLowerCase();
+    setSearch(search);
     console.log(search);
     if (search.length > 3) {
       setFildata(
@@ -174,6 +176,15 @@ const Query = ({ query }) => {
             </div>
           </div>
           <SearchBar type="text" placeholder="Search" onChange={handleChange} />
+          {search.length > 0 ? (
+            search.length < 4 ? (
+              <p>Seach should be greater than 3 letter</p>
+            ) : (
+              <p>{filtered.length} results found</p>
+            )
+          ) : (
+            <p></p>
+          )}
           <div className="q-container">
             {fildata.map((data, index) => (
               <QuesCard

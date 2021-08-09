@@ -62,6 +62,13 @@ const Timetable = () => {
         .container select:focus {
           outline: none;
         }
+        @media screen and (max-width: 600px) {
+          .container {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+          }
+        }
       `}</style>
     </>
   );

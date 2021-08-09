@@ -12,6 +12,7 @@ const filterName = ["assignment", "notice"];
 const Lecture = ({ data }) => {
   const [fil, setFil] = useState("");
   const [filtered, setFiltered] = useState(data);
+  const [search, setSearch] = useState("");
 
   const handleClick = (e) => {
     if (e.target.getAttribute("data-filter") === fil) {
@@ -30,7 +31,7 @@ const Lecture = ({ data }) => {
 
   const handleChange = (e) => {
     const search = e.target.value.toLowerCase();
-    console.log(search);
+    setSearch(search);
     if (search.length > 3) {
       setFiltered(
         data.filter((data) =>
@@ -49,6 +50,15 @@ const Lecture = ({ data }) => {
             Notice! <span className={styles.count}>{filtered.length}</span>
           </div>
           <SearchBar placeholder="Search" onChange={handleChange} />
+          {search.length > 0 ? (
+            search.length < 4 ? (
+              <p>Seach should be greater than 3 letter</p>
+            ) : (
+              <p>{filtered.length} results found</p>
+            )
+          ) : (
+            <p></p>
+          )}
           <div className={styles.tags}>
             <div>Filter by:</div>
             {filterName.map((name, index) => {

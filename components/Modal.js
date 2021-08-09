@@ -60,7 +60,7 @@ const StyledModal = styled.div`
   padding: 15px;
   @media (max-width: 768px) {
     width: 80vw;
-    height: 60vh;
+    height: auto;
   }
 `;
 const StyledModalOverlay = styled.div`

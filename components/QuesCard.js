@@ -1,6 +1,4 @@
 import styles from "../styles/Card.module.css";
-// import Moment from "react-moment";
-// import "moment-timezone";
 
 const QuesCard = ({ question, answer }) => {
   return (

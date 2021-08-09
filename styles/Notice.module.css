@@ -127,10 +127,13 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .tags .tag:hover,
-  .tags .tag.active {
+  .tags .tag:hover {
     background: #e27;
   }
+}
+
+.tags .tag.active {
+  background: #e27;
 }
 
 .hide {
