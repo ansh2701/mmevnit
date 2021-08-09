@@ -9,7 +9,7 @@ const Footer = ({ children }) => {
       <div className={styles.top}>
         <div className={styles.details}>
           <div className={styles.logo}>
-            <Image src="/VNITLOGO.png" height={100} width={100} alt="MME" />
+            <Image src="/VNITLOGO.png" height={120} width={100} alt="MME" />
             <div className={styles.name}>
               <p>MME DEPARTMENT</p>
               <span>VNIT, NAGPUR</span>

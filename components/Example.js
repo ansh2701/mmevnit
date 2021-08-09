@@ -5,7 +5,7 @@ import styles from "../styles/Example.module.css";
 const Example = ({ data }) => {
   return (
     <div>
-      <figure className={styles.snip1559}>
+      <figure className={styles.card}>
         <div className={styles.profileImage}>
           <Image
             src={data.picture.url}
@@ -18,8 +18,8 @@ const Example = ({ data }) => {
           <h3>{data.name}</h3>
           <h5>{data.tag}</h5>
           <div className={styles.icons}>
-            <FaLinkedin />
-            <FaInstagram />
+            <FaLinkedin className={styles.ic} />
+            <FaInstagram className={styles.ic} />
           </div>
         </figcaption>
       </figure>

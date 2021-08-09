@@ -5,19 +5,27 @@ import { fetchAPI } from "../lib/api";
 const departmentCouncil = ({ data }) => {
   return (
     <Layout>
+      <div className="heading">
+        <h1>DEPARTMENT COUNCIL 2021-22</h1>
+      </div>
       <div className="container">
         {data.profile.map((d, index) => (
           <Example key={index} data={d} />
         ))}
-        <style jsx>{`
+      </div>
+      <style jsx>{`
+        .heading h1 {
+          text-align: center;
+        }
+        .container {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-evenly;
 
-          margin: 5vw;
+          margin: 0 5vw;
           padding: 2vw;
-        `}</style>
-      </div>
+        }
+      `}</style>
     </Layout>
   );
 };

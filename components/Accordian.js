@@ -15,14 +15,19 @@ export default function Accordian({ sub }) {
         </button>
       </header>
       {expanded &&
-        sub.resources_3s !== [] &&
-        sub.resources_3s.map((notes, index) => (
-          <div key={index}>
-            <h5>{notes.resources.name}</h5>
-            <a href={notes.resources.link}>
-              <span>{notes.resources.link}</span>
-            </a>
-          </div>
+        (sub.resources_3s.length !== 0 ? (
+          sub.resources_3s.map((notes, index) => (
+            <div key={index}>
+              <h5 style={{ marginBottom: 0, textTransform: "uppercase" }}>
+                {notes.resources.name}
+              </h5>
+              <a href={notes.resources.link.includes("/") || "#"}>
+                <span>{notes.resources.link}</span>
+              </a>
+            </div>
+          ))
+        ) : (
+          <p>noting to show</p>
         ))}
       <style jsx>{`
         .subject {
@@ -67,6 +72,9 @@ export default function Accordian({ sub }) {
           margin-left: 1rem;
           align-self: center;
           min-width: 2rem;
+        }
+        .btn:focus {
+          outline: none;
         }
       `}</style>
     </div>
