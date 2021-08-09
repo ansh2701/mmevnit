@@ -44,12 +44,16 @@
 }
 
 .bottom {
-  margin-top: 1rem;
+  padding: 1rem 0;
 }
 
 .bottom h2 {
   margin: 0;
   text-align: center;
+}
+
+.icon {
+  padding-top: 10px;
 }
 
 @media screen and (max-width: 600px) {

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import DupCard from "../components/DupCard";
 import Example from "../components/Example";
+import Footer from "../components/Footer";
 import HomeCard from "../components/HomeCard";
 import Layout from "../components/Layout";
 
@@ -46,6 +47,7 @@ export default function Home() {
           <DupCard />
         </main>
       </div>
+      <Footer />
     </Layout>
   );
 }

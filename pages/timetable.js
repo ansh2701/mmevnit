@@ -9,7 +9,7 @@ const Timetable = () => {
   const router = useRouter();
   const year = router.query.year;
   return (
-    <Layout>
+    <>
       <div className="container">
         <div>
           <h1>Time-table for {year} year</h1>
@@ -63,7 +63,7 @@ const Timetable = () => {
           outline: none;
         }
       `}</style>
-    </Layout>
+    </>
   );
 };
 

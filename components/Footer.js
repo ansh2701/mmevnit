@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaInstagram } from "react-icons/fa";
 import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
@@ -7,12 +8,7 @@ const Footer = () => {
       <div className={styles.top}>
         <div className={styles.details}>
           <div className={styles.logo}>
-            <Image
-              src="/mmelogo2.png"
-              height={60}
-              width={180}
-              alt="Dalal Times"
-            />
+            <Image src="/mmelogo2.png" height={60} width={180} alt="MME" />
             <p>MME DEPARTMENT</p>
           </div>
           <p>
@@ -40,7 +36,9 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.bottom}>
-        <h2>Follow us on Instagram</h2>
+        <h2>
+          Follow us on <FaInstagram className={styles.icon} size={30} />
+        </h2>
       </div>
     </footer>
   );
