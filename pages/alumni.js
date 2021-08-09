@@ -2,7 +2,7 @@ import Example from "../components/Example";
 import Layout from "../components/Layout";
 import { fetchAPI } from "../lib/api";
 
-const departmentCouncil = ({ data }) => {
+const alumni = ({ data }) => {
   return (
     <Layout>
       <div className="container">
@@ -21,10 +21,12 @@ const departmentCouncil = ({ data }) => {
     </Layout>
   );
 };
-export default departmentCouncil;
+
+export default alumni;
 
 export async function getStaticProps() {
-  const data = await fetchAPI(`/council`);
+  const data = await fetchAPI(`/alumni`);
+
   if (!data) {
     return {
       notFound: true,

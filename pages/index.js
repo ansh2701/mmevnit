@@ -42,7 +42,7 @@ export default function Home() {
             </select>
           </div>
           <HomeCard year={year} />
-
+          <h2>Our Department</h2>
           <DupCard />
         </main>
       </div>
