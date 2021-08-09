@@ -9,17 +9,10 @@ const HomeCard = ({ year }) => {
         <Link href={`/notice?year=${year}`}>
           <a className={`${styles.card} education`}>
             <div className={styles.overlay}></div>
-            <motion.div
-              animate={{
-                scale: [1, 2, 2, 1, 1],
-                rotate: [0, 0, 270, 270, 0],
-                borderRadius: ["20%", "20%", "50%", "50%", "20%"],
-              }}
-            >
-              <div className={styles.circle}>
-                <Image src="/mes.png" height={120} width={120} alt="notice" />
-              </div>
-            </motion.div>
+
+            <div className={styles.circle}>
+              <Image src="/mes.png" height={120} width={120} alt="notice" />
+            </div>
 
             <h4>Notice</h4>
 
