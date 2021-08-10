@@ -201,19 +201,17 @@ const Query = ({ query }) => {
 
 export default Query;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const query = await fetchAPI(`/queries?verified=true`);
 
   if (!query) {
     return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
+      notFound: true,
     };
   }
 
   return {
     props: { query }, // will be passed to the page component as props
+    revalidate: 60 * 5,
   };
 }

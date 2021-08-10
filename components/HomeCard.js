@@ -1,12 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import styles from "../styles/Cards.module.css";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 const HomeCard = ({ year }) => {
+  const { ref, inView } = useInView();
+
+  const animation = useAnimation();
+
+  useEffect(() => {
+    inView &&
+      animation.start({
+        initial: { x: -100, opacity: 0 },
+        animate: { x: 0, opacity: 1 },
+      });
+
+    console.log(inView);
+  }, [inView]);
+
   return (
     <>
-      <motion.div className={styles.container}>
-        <Link href={`/notice?year=${year}`}>
+      <div className={styles.container}>
+        <Link href={`/notice?year=${year}`} passHref>
           <motion.a
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -29,7 +45,7 @@ const HomeCard = ({ year }) => {
             <p>Notice for {year} year</p>
           </motion.a>
         </Link>
-        <Link href={`/timetable?year=${year}`}>
+        <Link href={`/timetable?year=${year}`} passHref>
           <motion.a
             className={`${styles.card} credentialing`}
             initial={{ x: -100, opacity: 0 }}
@@ -46,7 +62,7 @@ const HomeCard = ({ year }) => {
           </motion.a>
         </Link>
 
-        <Link href={`/notes?year=${year}`}>
+        <Link href={`/notes?year=${year}`} passHref>
           <motion.a
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -62,13 +78,9 @@ const HomeCard = ({ year }) => {
             <p>Books/Notes for {year} year</p>
           </motion.a>
         </Link>
-        <Link href={`/query`}>
-          <motion.a
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            className={`${styles.card} wallet `}
-          >
-            <div className={styles.overlay}></div>
+        <Link href={`/query`} passHref>
+          <motion.a animate={animation} className={`${styles.card} wallet `}>
+            <div className={styles.overlay} ref={ref}></div>
 
             <div className={styles.circle}>
               <Image src="/query.png" height={120} width={120} alt="video" />
@@ -78,7 +90,7 @@ const HomeCard = ({ year }) => {
             <p>Ask a question!</p>
           </motion.a>
         </Link>
-      </motion.div>
+      </div>
     </>
   );
 };
