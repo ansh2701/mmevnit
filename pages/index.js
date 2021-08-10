@@ -40,9 +40,13 @@ export default function Home() {
         <div className={styles.select}>
           <h3>Change Year</h3>
           <select
+            defaultValue=""
             onChange={(e) => setYear(e.target.value)}
-            onClick={(e) => setYear(e.target.value)}
+            onClick={(e) => e.target.value === "" || setYear(e.target.value)}
           >
+            <option value="" disabled>
+              Select year
+            </option>
             <option value="2nd">2nd</option>
             <option value="3rd">3rd</option>
             <option value="4th">4th</option>
