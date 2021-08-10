@@ -45,7 +45,7 @@ export default function Home() {
             onClick={(e) => e.target.value === "" || setYear(e.target.value)}
           >
             <option value="" disabled>
-              Select year
+              Select
             </option>
             <option value="2nd">2nd</option>
             <option value="3rd">3rd</option>

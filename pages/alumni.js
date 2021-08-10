@@ -14,14 +14,13 @@ const alumni = ({ data }) => {
           {data.profile.map((d, index) => (
             <Example key={index} data={d} />
           ))}
+          <div className="cube"></div>
+          <div className="cube"></div>
+          <div className="cube"></div>
+          <div className="cube"></div>
+          <div className="cube"></div>
+          <div className="cube"></div>
         </div>
-
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
       </div>
 
       <style jsx>{`
@@ -50,7 +49,7 @@ const alumni = ({ data }) => {
         }
 
         .cube {
-          position: absolute;
+          position: fixed;
           top: 80vh;
           left: 45vw;
           width: 10px;
@@ -65,14 +64,14 @@ const alumni = ({ data }) => {
           border-color: #0051f4;
         }
         .cube:nth-child(2) {
-          -webkit-animation-delay: 2s;
-          animation-delay: 2s;
+          -webkit-animation-delay: 1s;
+          animation-delay: 1s;
           left: 25vw;
           top: 40vh;
         }
         .cube:nth-child(3) {
-          -webkit-animation-delay: 4s;
-          animation-delay: 4s;
+          -webkit-animation-delay: 2s;
+          animation-delay: 2s;
           left: 75vw;
           top: 50vh;
         }
@@ -114,6 +113,11 @@ const alumni = ({ data }) => {
           to {
             transform: scale(20) rotate(960deg) translate(-50%, -50%);
             opacity: 0;
+          }
+        }
+        @media screen and (max-width: 600px) {
+          .heading h1 {
+            font-size: 30px;
           }
         }
       `}</style>
