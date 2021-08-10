@@ -212,6 +212,6 @@ export async function getStaticProps() {
 
   return {
     props: { query }, // will be passed to the page component as props
-    revalidate: 60 * 5,
+    revalidate: 60 * 60,
   };
 }

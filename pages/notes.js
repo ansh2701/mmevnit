@@ -36,7 +36,7 @@ const Notes = ({ data }) => {
 
 export default Notes;
 
-export async function getServerSideProps(query) {
+export async function getStaticProps(query) {
   const que = val.includes(query.query.year)
     ? query.query.year.slice(0, 1)
     : "3";
@@ -44,14 +44,12 @@ export async function getServerSideProps(query) {
 
   if (!data) {
     return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
+      notFound: true,
     };
   }
 
   return {
     props: { data }, // will be passed to the page component as props
+    revalidate: 60 * 60,
   };
 }
