@@ -42,7 +42,7 @@ const HomeCard = ({ year }) => {
         </Link>
         <Link href={`/timetable?year=${year}`} passHref>
           <motion.a
-            className={`${styles.card} credentialing`}
+            className={`${styles.card} table`}
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
@@ -63,7 +63,7 @@ const HomeCard = ({ year }) => {
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
-            className={`${styles.card} human-resources`}
+            className={`${styles.card} queries`}
           >
             <div className={styles.overlay}></div>
 
@@ -80,7 +80,7 @@ const HomeCard = ({ year }) => {
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
-            className={`${styles.card} wallet `}
+            className={`${styles.card} notes `}
           >
             <div className={styles.overlay}></div>
 

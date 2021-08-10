@@ -153,7 +153,7 @@ const Query = ({ query }) => {
                     Question
                   </label>
 
-                  <input
+                  <textarea
                     type="textarea"
                     name="question"
                     id="question"

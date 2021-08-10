@@ -27,19 +27,19 @@ a {
   --box-shadow-color: rgba(255, 215, 97, 0.48);
 }
 
-.credentialing {
+.table {
   --bg-color: #b8f9d3;
   --bg-color-light: #e2fced;
   --box-shadow-color: rgba(184, 249, 211, 0.48);
 }
 
-.wallet {
+.notes {
   --bg-color: #ceb2fc;
   --bg-color-light: #f0e7ff;
   --box-shadow-color: rgba(206, 178, 252, 0.48);
 }
 
-.human-resources {
+.queries {
   --bg-color: #dce9ff;
   --bg-color-light: #f1f7ff;
   --box-shadow-color: rgba(220, 233, 255, 0.48);
