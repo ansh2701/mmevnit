@@ -177,6 +177,11 @@ const DepartmentCouncil = ({ data }) => {
 
 }
 }
+@media screen and (max-width: 600px){
+  .heading h1{
+    font-size: 30px;
+  }
+}
       `}</style>
     </div>
   );
