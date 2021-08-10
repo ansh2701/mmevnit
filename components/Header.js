@@ -53,7 +53,7 @@ function Header() {
             className={click ? `${styles.navmenuActive}` : `${styles.navmenu}`}
           >
             <li className={styles.navitem}>
-              <Link href={`/notice?year=${year}`}>
+              <Link href={`/notice/${year}`}>
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
                   Notice
                 </a>
@@ -67,14 +67,14 @@ function Header() {
               </Link>
             </li>
             <li className={styles.navitem}>
-              <Link href={`/notes?year=${year}`}>
+              <Link href={`/notes/${year}`}>
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
                   Study Material
                 </a>
               </Link>
             </li>
             <li className={styles.navitem}>
-              <Link href={`/query?year=${year}`}>
+              <Link href={`/query`}>
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
                   Query
                 </a>

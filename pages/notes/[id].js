@@ -1,19 +1,16 @@
 import { useRouter } from "next/router";
-import { fetchAPI } from "../lib/api";
-import Accordian from "../components/Accordian";
-import Layout from "../components/Layout";
-
-const val = ["2nd", "3rd", "4th"];
+import { fetchAPI } from "../../lib/api";
+import Accordian from "../../components/Accordian";
+import Layout from "../../components/Layout";
 
 const Notes = ({ data }) => {
   const router = useRouter();
-  const rYear = router.query.year;
+  const rYear = router.query.id;
+
   return (
     <Layout>
       <div>
-        <h2 className="heading">
-          Study Material of {val.includes(rYear) ? rYear : "3rd"} Year
-        </h2>
+        <h2 className="heading">Study Material of {rYear} Year</h2>
         <div className="container">
           {data.map((sub, index) => (
             <Accordian key={index} sub={sub} />
@@ -36,10 +33,19 @@ const Notes = ({ data }) => {
 
 export default Notes;
 
-export async function getStaticProps(query) {
-  const que = val.includes(query.query.year)
-    ? query.query.year.slice(0, 1)
-    : "3";
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: "2nd" } },
+      { params: { id: "3rd" } },
+      { params: { id: "4th" } },
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(params) {
+  const que = params.params.id.slice(0, 1);
   const data = await fetchAPI(`/subject-${que}-s`);
 
   if (!data) {

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaUserGraduate } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
 import styles from "../styles/DupCards.module.css";
-const HomeCard = ({ year }) => {
+const HomeCard = () => {
   return (
     <>
       <div className={styles.container}>

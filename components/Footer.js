@@ -27,7 +27,7 @@ const Footer = ({ children }) => {
           <ul>
             <p>Site Links</p>
             <li>
-              <Link href={`/derpartment-council`}>
+              <Link href={`/department-council`}>
                 <a>Council</a>
               </Link>
             </li>

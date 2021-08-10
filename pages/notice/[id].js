@@ -1,12 +1,10 @@
 import { useState } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchAPI } from "../lib/api";
-import Card from "../components/Card";
-import Layout from "../components/Layout";
-import styles from "../styles/Notice.module.css";
-import SearchBar from "../components/SearchBar";
+import { fetchAPI } from "../../lib/api";
+import Card from "../../components/Card";
+import Layout from "../../components/Layout";
+import styles from "../../styles/Notice.module.css";
+import SearchBar from "../../components/SearchBar";
 
-const val = ["2nd", "3rd", "4th"];
 const filterName = ["assignment", "notice"];
 
 const Lecture = ({ data }) => {
@@ -107,10 +105,20 @@ const Lecture = ({ data }) => {
 
 export default Lecture;
 
-export async function getStaticProps(query) {
-  const que = val.includes(query.query.year)
-    ? query.query.year.slice(0, 1)
-    : "3";
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: "2nd" } },
+      { params: { id: "3rd" } },
+      { params: { id: "4th" } },
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(params) {
+  const que = params.params.id.slice(0, 1);
+
   const data = await fetchAPI(`/notice-${que}-s?_sort=created_at:DESC`);
 
   if (!data) {
