@@ -5,22 +5,36 @@ import styles from "../styles/Cards.module.css";
 const HomeCard = ({ year }) => {
   return (
     <>
-      <div className={styles.container}>
+      <motion.div className={styles.container}>
         <Link href={`/notice?year=${year}`}>
-          <a className={`${styles.card} education`}>
+          <motion.a
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            className={`${styles.card} education`}
+          >
             <div className={styles.overlay}></div>
 
             <div className={styles.circle}>
               <Image src="/mes.png" height={120} width={120} alt="notice" />
             </div>
 
-            <h4>Notice</h4>
+            <motion.h4
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+            >
+              Notice
+            </motion.h4>
 
             <p>Notice for {year} year</p>
-          </a>
+          </motion.a>
         </Link>
         <Link href={`/timetable?year=${year}`}>
-          <a className={`${styles.card} credentialing`}>
+          <motion.a
+            className={`${styles.card} credentialing`}
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+          >
             <div className={styles.overlay}></div>
 
             <div className={styles.circle}>
@@ -29,11 +43,15 @@ const HomeCard = ({ year }) => {
 
             <h4>Time Table</h4>
             <p>Time Table for {year} year</p>
-          </a>
+          </motion.a>
         </Link>
 
         <Link href={`/notes?year=${year}`}>
-          <a className={`${styles.card} human-resources`}>
+          <motion.a
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            className={`${styles.card} human-resources`}
+          >
             <div className={styles.overlay}></div>
 
             <div className={styles.circle}>
@@ -42,10 +60,14 @@ const HomeCard = ({ year }) => {
 
             <h4>Study Material</h4>
             <p>Books/Notes for {year} year</p>
-          </a>
+          </motion.a>
         </Link>
         <Link href={`/query`}>
-          <a className={`${styles.card} wallet `}>
+          <motion.a
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            className={`${styles.card} wallet `}
+          >
             <div className={styles.overlay}></div>
 
             <div className={styles.circle}>
@@ -54,9 +76,9 @@ const HomeCard = ({ year }) => {
 
             <h4>Query</h4>
             <p>Ask a question!</p>
-          </a>
+          </motion.a>
         </Link>
-      </div>
+      </motion.div>
     </>
   );
 };

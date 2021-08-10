@@ -76,7 +76,6 @@ const Query = ({ query }) => {
   const handleChange = (e) => {
     const search = e.target.value.toLowerCase();
     setSearch(search);
-    console.log(search);
     if (search.length > 3) {
       setFildata(
         query.filter(
@@ -180,7 +179,7 @@ const Query = ({ query }) => {
             search.length < 4 ? (
               <p>Seach should be greater than 3 letter</p>
             ) : (
-              <p>{filtered.length} results found</p>
+              <p>{fildata.length} results found</p>
             )
           ) : (
             <p></p>

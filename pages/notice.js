@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchAPI } from "../lib/api";
 import Card from "../components/Card";
 import Layout from "../components/Layout";
 import styles from "../styles/Notice.module.css";
 import SearchBar from "../components/SearchBar";
-import Moment from "react-moment";
 
 const val = ["2nd", "3rd", "4th"];
 const filterName = ["assignment", "notice"];
@@ -96,6 +95,7 @@ const Lecture = ({ data }) => {
               Deadline
             </a>
           </div> */}
+
           {filtered.map((notice, index) => (
             <Card notice={notice} key={index} />
           ))}
