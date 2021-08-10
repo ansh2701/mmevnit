@@ -16,20 +16,18 @@ const DepartmentCouncil = ({ data }) => {
           ))}
         </div>
 
-        <div className="area">
-          <ul className="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
+        <ul className="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
 
       <style jsx>{`
@@ -60,15 +58,7 @@ const DepartmentCouncil = ({ data }) => {
 }
 
 
-.area{
-    background: #4e54c8;  
-   
-    width: 100%;
-    height:100%;
-   
-    
-   
-}
+
 
 .circles{
     position: absolute;
@@ -77,6 +67,8 @@ const DepartmentCouncil = ({ data }) => {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .circles li{
