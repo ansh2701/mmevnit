@@ -5,8 +5,8 @@
   overflow: hidden;
   margin: 10px;
   width: 250px;
-
-  background-color: #ffffff1a;
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
   border-radius: 10px;
   color: #2b2b2b;
   text-align: center;
@@ -16,14 +16,20 @@
 }
 
 .card .profileImage {
-  padding: 15% 10% 0;
+  /* padding: 15% 10% 0; */
+  height: 200px;
+  width: 200px;
+  margin: 30px auto 20px auto;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border-radius: 50%;
+  padding-top: 10px;
 }
 
 .card .profileImage img {
-  vertical-align: top;
-  position: relative;
   border-radius: 50%;
-  max-width: 70%;
 }
 
 .card figcaption {
@@ -37,6 +43,7 @@
   font-weight: 400;
   line-height: 24px;
   margin: 3px 0;
+  color: #d5d5d5;
 }
 
 .card h5 {
@@ -52,7 +59,7 @@
 }
 
 .card .icons .ic {
-  color: rgb(15, 15, 15);
+  color: rgb(151, 140, 140);
   display: inline-block;
   margin-right: 5px;
   font-size: 1.5em;

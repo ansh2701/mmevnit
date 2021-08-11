@@ -1,15 +1,26 @@
 import Example from "../components/Example";
+import ProfileCard from "../components/ProfileCard";
 
 import { fetchAPI } from "../lib/api";
 
+const style = {
+  backgroundImage:
+    "url(" + "https://i.postimg.cc/C5Y74Vhw/background.png" + ")",
+};
 const Proffesor = ({ data }) => {
   return (
     <div>
-      <div className="context">
+      <div className="context" style={style}>
         <div className="heading">
           <h1>MME PROFFESOR</h1>
         </div>
         <div className="container">
+          {data.profile.map((d, index) => (
+            <Example key={index} data={d} />
+          ))}
+          {data.profile.map((d, index) => (
+            <Example key={index} data={d} />
+          ))}
           {data.profile.map((d, index) => (
             <Example key={index} data={d} />
           ))}
@@ -32,6 +43,8 @@ const Proffesor = ({ data }) => {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-evenly;
+
+          background-size: cover;
         }
       `}</style>
     </div>
