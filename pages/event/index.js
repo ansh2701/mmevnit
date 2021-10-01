@@ -136,21 +136,25 @@ const Index = () => {
 
 const Card = () => {
   return (
-    <div>
-      <div className={styles.card}>
-        <div className={styles.card__image}>
-          <Image
-            src="https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg"
-            alt=""
-            layout="fill"
-          />
+    <Link href="/event/tom">
+      <a>
+        <div>
+          <div className={styles.card}>
+            <div className={styles.card__image}>
+              <Image
+                src="https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg"
+                alt=""
+                layout="fill"
+              />
+            </div>
+            <div className={styles.card__text}>
+              <div className={styles.card__postdate}>Jan 29, 2018</div>
+              <h2 className={styles.card__title}>Tommorowland</h2>
+            </div>
+          </div>
         </div>
-        <div className={styles.card__text}>
-          <div className={styles.card__postdate}>Jan 29, 2018</div>
-          <h2 className={styles.card__title}>Tommorowland</h2>
-        </div>
-      </div>
-    </div>
+      </a>
+    </Link>
   );
 };
 
