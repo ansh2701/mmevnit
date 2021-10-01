@@ -126,6 +126,12 @@
   margin-left: 0.4rem;
 }
 
+@media screen and (max-width: 400px) {
+  .container {
+    width: 100vw;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .tags .tag:hover {
     background: #e27;

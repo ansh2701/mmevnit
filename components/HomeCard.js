@@ -92,6 +92,23 @@ const HomeCard = ({ year }) => {
             <p>Ask a question!</p>
           </motion.a>
         </Link>
+        <Link href={`/event`} passHref>
+          <motion.a
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            className={`${styles.card} event `}
+          >
+            <div className={styles.overlay}></div>
+
+            <div className={styles.circle}>
+              <Image src="/event.png" height={120} width={120} alt="video" />
+            </div>
+
+            <h4>Event</h4>
+            <p>Lets have fun</p>
+          </motion.a>
+        </Link>
       </div>
     </>
   );

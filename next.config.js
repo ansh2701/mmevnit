@@ -7,3 +7,8 @@ module.exports = {
     domains: ["res.cloudinary.com"],
   },
 };
+module.exports = {
+  images: {
+    domains: ["cdn.pixabay.com"],
+  },
+};

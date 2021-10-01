@@ -59,7 +59,7 @@ const Query = ({ query }) => {
         progress: undefined,
       });
     } else {
-      toast.success(" Question submitted", {
+      toast.success(" Query submitted", {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
