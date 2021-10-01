@@ -4,8 +4,12 @@ import Layout from "../../components/Layout";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import styles from "../../styles/Event.module.css";
+import { useState } from "react";
 
-const index = () => {
+const Index = () => {
+  const [flexUp, setFlexUp] = useState(false);
+  const [flexPv, setFlexPv] = useState(false);
+
   return (
     <Layout>
       <div className={styles.back}>
@@ -72,14 +76,14 @@ const index = () => {
                           alt=""
                         />
                       </li>
-                      <li>
+                      {/* <li>
                         <Image
                           src="https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg"
                           height={120}
                           width={120}
                           alt=""
                         />
-                      </li>
+                      </li> */}
                     </ul>
                     <p> +10 Images</p>
                   </div>
@@ -90,15 +94,17 @@ const index = () => {
           <div className={styles.container}>
             <div className={styles.heading}>
               <h2>Upcoming Events</h2>
-              <span>See all</span>
+              <span onClick={() => setFlexUp(!flexUp)}>
+                {flexUp ? "Close" : "See all"}
+              </span>
             </div>
-            <div className={styles.contentWrapper}>
-              {/* <Carousel
-              showArrows={false}
-              autoPlay={true}
-              showThumbs={false}
-              infiniteLoop={true}
-            > */}
+            <div
+              className={styles.contentWrapper}
+              style={{
+                flexFlow: flexUp ? "row wrap" : "nowrap",
+                overflow: flexUp ? "hidden" : "auto",
+              }}
+            >
               <Card />
               <Card />
             </div>
@@ -106,9 +112,15 @@ const index = () => {
           <div className={styles.container}>
             <div className={styles.heading}>
               <h2>Previous Events</h2>
-              <span>See all</span>
+              <span onClick={() => setFlexPv(!flexPv)}>
+                {" "}
+                {flexPv ? "Close" : "See all"}
+              </span>
             </div>
-            <div className={styles.contentWrapper}>
+            <div
+              className={styles.contentWrapper}
+              style={{ flexWrap: flexPv ? "wrap" : "nowrap" }}
+            >
               <Card />
             </div>
           </div>
@@ -138,4 +150,4 @@ const Card = () => {
   );
 };
 
-export default index;
+export default Index;

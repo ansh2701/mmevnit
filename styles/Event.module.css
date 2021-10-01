@@ -4,7 +4,7 @@
 }
 
 .hero {
-  height: 90vh;
+  height: 88vh;
   width: 100%;
   position: relative;
   text-align: center;
@@ -25,11 +25,6 @@
   font-size: 3rem;
 }
 
-.box {
-  background-color: #1e2630;
-  z-index: 1000;
-  width: 100%;
-}
 .gallery {
   padding: 5vw;
 }
@@ -114,13 +109,12 @@
 
 .container {
   width: 100%;
-  padding-left: 5vw;
 }
 
 .heading {
   color: #fff;
   display: flex;
-  padding-right: 5vw;
+  padding: 0 5vw;
   justify-content: space-between;
   align-items: center;
 }
@@ -134,7 +128,7 @@
   margin: 0 auto;
   /* max-width: 1200px; */
   display: flex;
-  /* flex-flow: row wrap; */
+
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   /* justify-content: center; */
@@ -215,5 +209,13 @@
   .overlap li {
     width: 60px;
     height: 60px;
+  }
+  .contentWrapper {
+    padding: 0 5vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  .hero_text {
+    font-size: 2rem;
   }
 }
