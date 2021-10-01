@@ -102,7 +102,6 @@ const Index = () => {
               className={styles.contentWrapper}
               style={{
                 flexFlow: flexUp ? "row wrap" : "nowrap",
-                justifyContent: flexUp && "center",
               }}
             >
               <Card />
@@ -121,7 +120,6 @@ const Index = () => {
               className={styles.contentWrapper}
               style={{
                 flexWrap: flexPv ? "wrap" : "nowrap",
-                justifyContent: flexPv && "center",
               }}
             >
               <Card />

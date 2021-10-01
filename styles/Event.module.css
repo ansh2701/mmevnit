@@ -218,4 +218,11 @@
   .hero_text {
     font-size: 2rem;
   }
+  .gallery_btn span {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 400;
+    max-width: 80px;
+    word-wrap: break-word;
+  }
 }
