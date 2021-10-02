@@ -46,7 +46,7 @@ const event = ({ event }) => {
         </p>
       </div>
       <footer className={styles.footer}>
-        {event.driveurl ? (
+        {event.driveurl === null ? (
           event.registerurl && (
             <Link href={event.registerurl}>
               <a>

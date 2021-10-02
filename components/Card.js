@@ -10,19 +10,19 @@ const Card = ({ notice }) => {
         <div className={styles.header}>
           <div
             className={styles.type}
-            style={{
-              color: `${
-                notice.Notice.deadline &&
-                notice.Notice.deadline.slice(8, 10) ===
-                  new Date().toISOString().slice(8, 10) &&
-                "red"
-              }`,
-            }}
+            // style={{
+            //   color: `${
+            //     notice.Notice.deadline &&
+            //     notice.Notice.deadline.slice(8, 10) ===
+            //       new Date().toISOString().slice(8, 10) &&
+            //     "red"
+            //   }`,
+            // }}
           >
             {notice.Notice.type}
           </div>
           <div className={styles.date}>
-            <Moment format="DD/MM/YY hh:mm">{notice.updated_at}</Moment>
+            <Moment fromNow>{notice.updated_at}</Moment>
           </div>
         </div>
         <div className={styles.meta}>{notice.Notice.description}</div>

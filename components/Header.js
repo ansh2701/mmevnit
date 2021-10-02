@@ -40,7 +40,7 @@ function Header() {
                 src="/mmelogo2.png"
                 height={60}
                 width={180}
-                alt="Dalal Times"
+                alt="MME VNIT"
               />
               {/* <FaMagento /> */}
             </a>
@@ -77,6 +77,13 @@ function Header() {
               <Link href={`/query`}>
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
                   Query
+                </a>
+              </Link>
+            </li>
+            <li className={styles.navitem}>
+              <Link href={`/events`}>
+                <a className={styles.navlinks} onClick={closeMobileMenu}>
+                  Events
                 </a>
               </Link>
             </li>

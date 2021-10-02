@@ -70,6 +70,17 @@ const Footer = ({ children }) => {
                 </a>
               </Link>
             </li>
+            <li>
+              <Link href={`/academic-calendar`}>
+                <a
+                  className={styles.navlinks}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Academic Calendar
+                </a>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

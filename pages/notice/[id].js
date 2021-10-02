@@ -10,9 +10,11 @@ const filterName = ["assignment", "notice"];
 const Lecture = ({ data }) => {
   const changeData = data.filter((d) =>
     d.Notice.deadline
-      ? d.Notice.deadline.slice(8, 10) >= new Date().toISOString().slice(8, 10)
+      ? new Date(d.Notice.deadline).getTime() >= new Date().getTime()
       : true
   );
+
+  console.log(new Date().getTime());
 
   const [fil, setFil] = useState("");
   const [filtered, setFiltered] = useState(changeData);
