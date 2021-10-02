@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import Gallery from "react-photo-gallery";
+import { fetchAPI } from "../../lib/api";
 import Carousel, { Modal, ModalGateway } from "react-images";
 
 const photos = [
@@ -50,7 +51,18 @@ const photos = [
   },
 ];
 
-const PhotoGallery = () => {
+const PhotoGallery = ({ photo }) => {
+  const ratio = (a, b) => {
+    a = Math.ceil(a / 200);
+    b = Math.ceil(b / 200);
+
+    if (a % b === 0) {
+      return a / b;
+    } else {
+      return a;
+    }
+  };
+
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
@@ -64,9 +76,20 @@ const PhotoGallery = () => {
     setViewerIsOpen(false);
   };
 
+  const gal = [];
+  const filPhoto = photo.map((ph) =>
+    ph.pic.map((im) =>
+      gal.push({
+        src: im.url,
+        height: ratio(im.height, im.width),
+        width: ratio(im.width, im.height),
+      })
+    )
+  );
+
   return (
     <div>
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Gallery photos={gal} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
@@ -86,3 +109,18 @@ const PhotoGallery = () => {
 };
 
 export default PhotoGallery;
+
+export async function getStaticProps() {
+  const photo = await fetchAPI(`/gallery`);
+  const car = photo.Image.shift();
+  if (!photo) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { photo: photo.Image }, // will be passed to the page component as props
+    revalidate: 60 * 5,
+  };
+}

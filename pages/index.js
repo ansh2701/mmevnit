@@ -11,7 +11,7 @@ export default function Home() {
   const [year, setYear] = useState("3rd");
   useEffect(() => {
     const localYear = localStorage.getItem("year");
-    console.log(localYear);
+
     localYear && setYear(localYear);
   }, []);
   useEffect(() => {

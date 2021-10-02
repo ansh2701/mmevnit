@@ -5,10 +5,22 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import styles from "../../styles/Event.module.css";
 import { useState } from "react";
+import { fetchAPI } from "../../lib/api";
 
-const Index = () => {
+const Index = ({ event, photo }) => {
+  const d = new Date();
   const [flexUp, setFlexUp] = useState(false);
   const [flexPv, setFlexPv] = useState(false);
+  const upData = event.filter(
+    (et) => et.Date.slice(8, 10) >= new Date().getDate()
+  );
+  const pvData = event.filter(
+    (et) => et.Date.slice(8, 10) < new Date().getDate()
+  );
+
+  let total = photo.reduce(function (accumulator, current) {
+    return accumulator + current.pic.length;
+  }, -(photo[0].pic.length + photo[photo.length - 1].pic.length));
 
   return (
     <Layout>
@@ -20,25 +32,13 @@ const Index = () => {
             showThumbs={false}
             infiniteLoop={true}
           >
-            <div className={styles.hero}>
-              <div className={styles.image}>
-                <Image src="/concert.jpg" layout="fill" alt="concert" />
+            {photo[0].pic.map((car, index) => (
+              <div className={styles.hero} key={index}>
+                <div className={styles.image}>
+                  <Image src={car.url} layout="fill" alt="concert" />
+                </div>
               </div>
-            </div>
-            <div className={styles.image}>
-              <Image
-                src="https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_960_720.jpg"
-                layout="fill"
-                alt="concert"
-              />
-            </div>
-            <div className={styles.image}>
-              <Image
-                src="https://cdn.pixabay.com/photo/2014/05/03/01/02/stage-336695_960_720.jpg"
-                layout="fill"
-                alt="concert"
-              />
-            </div>
+            ))}
           </Carousel>
           <div className={styles.hero_text}>
             <h1>EVENTS</h1>
@@ -52,40 +52,32 @@ const Index = () => {
                   <span>Photo Gallery</span>
                   <div className={styles.overlap}>
                     <ul>
-                      <li>
-                        <Image
-                          src="https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg"
-                          height={120}
-                          width={120}
-                          alt=""
-                        />
-                      </li>
-                      <li>
-                        <Image
-                          src="https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg"
-                          height={120}
-                          width={120}
-                          alt=""
-                        />
-                      </li>
-                      <li>
-                        <Image
-                          src="https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg"
-                          height={120}
-                          width={120}
-                          alt=""
-                        />
-                      </li>
-                      {/* <li>
-                        <Image
-                          src="https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg"
-                          height={120}
-                          width={120}
-                          alt=""
-                        />
-                      </li> */}
+                      {photo.length > 1 &&
+                      photo[photo.length - 1].pic.length > 3
+                        ? photo[photo.length - 1].pic
+                            .slice(0, 3)
+                            .map((im, index) => (
+                              <li key={index}>
+                                <Image
+                                  src={im.url}
+                                  height={120}
+                                  width={120}
+                                  alt=""
+                                />
+                              </li>
+                            ))
+                        : photo[photo.length - 1].pic.map((im, index) => (
+                            <li key={index}>
+                              <Image
+                                src={im.url}
+                                height={120}
+                                width={120}
+                                alt=""
+                              />
+                            </li>
+                          ))}
                     </ul>
-                    <p> +10 Images</p>
+                    <p> +{total} Images</p>
                   </div>
                 </div>
               </a>
@@ -95,7 +87,7 @@ const Index = () => {
             <div className={styles.heading}>
               <h2>Upcoming Events</h2>
               <span onClick={() => setFlexUp(!flexUp)}>
-                {flexUp ? "Close" : "See all"}
+                {flexUp ? "Close " : "See all "}({upData.length})
               </span>
             </div>
             <div
@@ -104,8 +96,14 @@ const Index = () => {
                 flexFlow: flexUp ? "row wrap" : "nowrap",
               }}
             >
-              <Card />
-              <Card />
+              {upData.map((et, index) => (
+                <Card event={et} key={index} />
+              ))}
+              {upData.length === 0 && (
+                <p className={styles.message}>No Upcoming Event</p>
+              )}
+              {/* <Card />
+              <Card /> */}
             </div>
           </div>
           <div className={styles.container}>
@@ -113,7 +111,7 @@ const Index = () => {
               <h2>Previous Events</h2>
               <span onClick={() => setFlexPv(!flexPv)}>
                 {" "}
-                {flexPv ? "Close" : "See all"}
+                {flexPv ? "Close " : "See all "}({pvData.length})
               </span>
             </div>
             <div
@@ -122,8 +120,16 @@ const Index = () => {
                 flexWrap: flexPv ? "wrap" : "nowrap",
               }}
             >
-              <Card />
-              <Card />
+              {/* <Card />
+              <Card /> */}
+              {pvData.map((et, index) => (
+                <Card event={et} key={index} />
+              ))}
+              {pvData.length === 0 && (
+                <p className={styles.message}>
+                  No Previous Event Data Available
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -132,22 +138,18 @@ const Index = () => {
   );
 };
 
-const Card = () => {
+const Card = ({ event }) => {
   return (
-    <Link href="/event/tom">
+    <Link href={`/event/${event.slug}`}>
       <a>
         <div>
           <div className={styles.card}>
             <div className={styles.card__image}>
-              <Image
-                src="https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg"
-                alt=""
-                layout="fill"
-              />
+              <Image src={event.image.url} alt="" layout="fill" />
             </div>
             <div className={styles.card__text}>
-              <div className={styles.card__postdate}>Jan 29, 2018</div>
-              <h2 className={styles.card__title}>Tommorowland</h2>
+              <div className={styles.card__postdate}>{event.Date}</div>
+              <h2 className={styles.card__title}>{event.name}</h2>
             </div>
           </div>
         </div>
@@ -157,3 +159,19 @@ const Card = () => {
 };
 
 export default Index;
+
+export async function getStaticProps() {
+  const event = await fetchAPI(`/events`);
+  const photo = await fetchAPI(`/gallery`);
+
+  if (!event) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { event, photo: photo.Image }, // will be passed to the page component as props
+    revalidate: 60 * 5,
+  };
+}
