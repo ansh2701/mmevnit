@@ -8,7 +8,6 @@ import { useState } from "react";
 import { fetchAPI } from "../../lib/api";
 
 const Index = ({ event, photo }) => {
-  const d = new Date();
   const [flexUp, setFlexUp] = useState(false);
   const [flexPv, setFlexPv] = useState(false);
   const upData = event.filter(
